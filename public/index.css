@@ -1,0 +1,317 @@
+@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap");
+
+:root {
+    --paper: #f3ece0;
+    --card: #fbf7ef;
+    --ink: #2b1215;
+    --ink-soft: #6b5a58;
+    --line: #ddd0ba;
+    --brick: #a8323e;
+    --brick-dark: #85242f;
+    --brick-tint: #f6e4e1;
+    --maroon: #3a1418;
+    --display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+    --text: "Source Serif 4", Georgia, "Times New Roman", serif;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--text);
+    font-size: 1.05rem;
+    line-height: 1.6;
+}
+
+/* ---------- Header ---------- */
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    padding: 22px 20px;
+    border-bottom: 1px solid var(--line);
+}
+
+.header img {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--maroon);
+}
+
+.header h1 {
+    margin: 0;
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: clamp(1.8rem, 6vw, 2.5rem);
+    letter-spacing: -0.01em;
+    color: var(--maroon);
+}
+
+/* ---------- Page layout ---------- */
+
+main {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 32px 20px 72px;
+}
+
+main h2 {
+    margin: 0 0 4px;
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 1.6rem;
+    color: var(--maroon);
+}
+
+.intro {
+    margin: 0 0 18px;
+    color: var(--ink-soft);
+}
+
+/* ---------- Ingredient form ---------- */
+
+.ingredient-form {
+    display: flex;
+    gap: 10px;
+}
+
+.ingredient-form input {
+    flex: 1;
+    min-width: 0;
+    padding: 13px 16px;
+    font: inherit;
+    color: var(--ink);
+    background: var(--card);
+    border: 1.5px solid var(--line);
+    border-radius: 10px;
+}
+
+.ingredient-form input::placeholder {
+    color: #9d8d88;
+}
+
+.ingredient-form input:focus {
+    outline: none;
+    border-color: var(--brick);
+    box-shadow: 0 0 0 3px rgba(168, 50, 62, 0.18);
+}
+
+button {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.ingredient-form button {
+    padding: 13px 20px;
+    white-space: nowrap;
+    color: var(--paper);
+    background: var(--maroon);
+    border: none;
+    border-radius: 10px;
+    transition: background 0.15s;
+}
+
+.ingredient-form button:hover {
+    background: var(--brick);
+}
+
+button:focus-visible {
+    outline: 3px solid var(--brick);
+    outline-offset: 2px;
+}
+
+/* ---------- Ingredient chips ---------- */
+
+.ingredients-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 22px 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.ingredients-list li {
+    padding: 7px 16px;
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: 0.97rem;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    cursor: context-menu;
+    transition: background 0.15s, border-color 0.15s, color 0.15s;
+}
+
+.ingredients-list li:hover {
+    background: var(--brick-tint);
+    border-color: var(--brick);
+    color: var(--brick-dark);
+}
+
+.hint {
+    margin: 12px 0 0;
+    font-size: 0.9rem;
+    color: var(--ink-soft);
+}
+
+/* ---------- Get recipe banner ---------- */
+
+.recipe-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    margin-top: 32px;
+    padding: 22px 24px;
+    color: var(--paper);
+    background: var(--maroon);
+    border-radius: 16px;
+}
+
+.recipe-container h3 {
+    margin: 0 0 4px;
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 1.25rem;
+}
+
+.recipe-container p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: rgba(243, 236, 224, 0.78);
+}
+
+.recipe-container button {
+    padding: 12px 22px;
+    color: var(--maroon);
+    background: var(--paper);
+    border: none;
+    border-radius: 10px;
+    transition: background 0.15s;
+}
+
+.recipe-container button:hover:not(:disabled) {
+    background: #ffffff;
+}
+
+.recipe-container button:disabled {
+    opacity: 0.65;
+    cursor: wait;
+}
+
+.recipe-container button:focus-visible {
+    outline-color: var(--paper);
+}
+
+/* ---------- Error ---------- */
+
+.error {
+    margin: 20px 0 0;
+    padding: 12px 16px;
+    color: #6e1d26;
+    background: var(--brick-tint);
+    border-left: 4px solid var(--brick);
+    border-radius: 8px;
+}
+
+/* ---------- Recipe card ---------- */
+
+.suggested-recipe-container {
+    margin-top: 32px;
+    padding: 26px 28px 32px;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-top: 6px solid var(--brick);
+    border-radius: 12px;
+}
+
+main .recipe-heading {
+    margin: 0 0 6px;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--brick);
+}
+
+.recipe-body {
+    line-height: 1.7;
+}
+
+.recipe-body h1 {
+    margin: 0.1em 0 0.5em;
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 1.9rem;
+    line-height: 1.15;
+    color: var(--maroon);
+}
+
+.recipe-body h2,
+.recipe-body h3 {
+    margin: 1.6em 0 0.5em;
+    padding-bottom: 6px;
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: var(--maroon);
+    border-bottom: 1px solid var(--line);
+}
+
+.recipe-body p {
+    margin: 0 0 0.9em;
+}
+
+.recipe-body ul,
+.recipe-body ol {
+    margin: 0 0 1em;
+    padding-left: 1.4em;
+}
+
+.recipe-body li {
+    margin: 0.35em 0;
+}
+
+.recipe-body li::marker {
+    color: var(--brick);
+}
+
+/* ---------- Small screens ---------- */
+
+@media (max-width: 520px) {
+    .header img {
+        width: 52px;
+        height: 52px;
+    }
+
+    .recipe-container {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .recipe-container button {
+        width: 100%;
+    }
+
+    .suggested-recipe-container {
+        padding: 22px 20px 26px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        transition: none !important;
+    }
+}
