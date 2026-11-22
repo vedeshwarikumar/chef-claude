@@ -24,7 +24,10 @@ module.exports = {
           loader: "babel-loader",
           // Embedded configuration options right here:
           options: {
-            presets: ["@babel/preset-env", "@babel/preset-react"],
+           presets: [
+  "@babel/preset-env",
+  ["@babel/preset-react", { runtime: "automatic", development: false }],
+],
           },
         },
       },
